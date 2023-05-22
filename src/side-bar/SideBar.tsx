@@ -17,30 +17,7 @@ const SideBar = () => {
   return (
     <div>
       <div className="fixed top-0 left-16 h-screen w-16 m-0 flex flex-col bg-gray-900 shadow-lg">
-        <div
-          data-hovered={count.toString()}
-          className="absolute bottom-0 w-8 self-center  
-          transition-all duration-300
-          data-[hovered='0']:h-24
-          data-[hovered='1']:h-[calc(100vh-64px+048px)]
-          data-[hovered='2']:h-[calc(100vh-128px+48px)]
-          data-[hovered='3']:h-[calc(100vh-192px+48px)]
-          data-[hovered='4']:h-[calc(100vh-256px+48px)]"
-        >
-          <div className="w-8 h-8 top-0 bg-orange-900 rounded-t-xl">
-            <span
-              data-hovering={hovering.toString()}
-              className="sidebar-tooltip scale-0 data-[hovering='true']:scale-100"
-            >
-              {`tooltip ${count}💡`}
-            </span>
-          </div>
-          <div className="w-8 h-full flex flex-row">
-            <div className="basis-1/3 bg-orange-900"></div>
-            <div className="basis-1/3"></div>
-            <div className="basis-1/3 bg-orange-900"></div>
-          </div>
-        </div>
+        <Gondola count={count} hovering={hovering} />
       </div>
       <div className="fixed top-0 left-0 h-screen w-16 m-0 flex flex-col bg-gray-900 text-white shadow-lg">
         <SideBarIcon
@@ -67,6 +44,40 @@ const SideBar = () => {
           onMouseLeave={() => updateHoverLeave()}
           icon={<FaPoo size="20" />}
         />
+      </div>
+    </div>
+  );
+};
+
+const Gondola = (p: { count: Number; hovering: Boolean }) => {
+  return (
+    <div
+      data-hovered={p.count.toString()}
+      className="absolute bottom-0 w-8 self-center  
+          transition-all duration-300
+          data-[hovered='0']:h-24
+          data-[hovered='1']:h-[calc(100vh-64px+048px)]
+          data-[hovered='2']:h-[calc(100vh-128px+48px)]
+          data-[hovered='3']:h-[calc(100vh-192px+48px)]
+          data-[hovered='4']:h-[calc(100vh-256px+48px)]"
+    >
+      <div className="w-8 h-8 top-0 bg-orange-900 rounded-t-xl">
+        <span
+          data-hovering={p.hovering.toString()}
+          className="sidebar-tooltip scale-0 data-[hovering='true']:scale-100"
+        >
+          {`tooltip ${p.count}💡`}
+        </span>
+        {p.hovering ? (
+          <img src={require("./face2.png")} alt="rest-face" />
+        ) : (
+          <img src={require("./face1.png")} alt="rest-face" />
+        )}
+      </div>
+      <div className="w-8 h-full flex flex-row">
+        <div className="basis-1/3 bg-orange-900"></div>
+        <div className="basis-1/3"></div>
+        <div className="basis-1/3 bg-orange-900"></div>
       </div>
     </div>
   );
