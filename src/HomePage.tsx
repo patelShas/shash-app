@@ -1,36 +1,16 @@
 import SideBar from "./side-bar/SideBar.tsx";
 
-const intent = () => {
-  return (
-    <div className="flex">
-      <div className="flex-none w-32">
-        <SideBar />
-      </div>
-      <div className="flex-1 left-24">
-        <h1 className="text-3xl font-bold text-green-400 text-center">
-          Hello (Shash)!
-        </h1>
-        <div className="p-12 bg-purple-700 h-screen">
-          <div className="p-12 bg-black" />
-        </div>
-      </div>
-    </div>
-  );
-};
-
 function HomePage() {
   return (
     <div className="flex">
       <div className="flex-none w-32">
         <SideBar />
       </div>
-      <div className="flex-1">
-        <h1 className="text-3xl font-bold text-green-400 text-center">
-          Hello (Shash)!
-        </h1>
-        <div className="p-12 bg-purple-700 h-screen">
-          <div className="p-12 bg-black" />
+      <div className="relative w-full h-screen">
+        <div className="relative font-bold z-50">
+          <p>This text is foreground</p>
         </div>
+        <div className="absolute top-0 left-0 -z-50 bg-gray-800 w-full h-full"></div>
       </div>
     </div>
   );

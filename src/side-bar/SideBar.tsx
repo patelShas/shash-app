@@ -15,7 +15,7 @@ const SideBar = () => {
   };
 
   return (
-    <div>
+    <div className="w-32 flex-none">
       <div className="fixed top-0 left-16 h-screen w-16 m-0 flex flex-col bg-gray-900 shadow-lg">
         <Gondola count={count} hovering={hovering} />
       </div>
@@ -61,7 +61,7 @@ const Gondola = (p: { count: Number; hovering: Boolean }) => {
           data-[hovered='3']:h-[calc(100vh-192px+48px)]
           data-[hovered='4']:h-[calc(100vh-256px+48px)]"
     >
-      <div className="w-8 h-8 top-0 bg-orange-900 rounded-t-xl">
+      <div className="w-8 h-8 top-0 bg-orange-900 rounded-t-xl p-1">
         <span
           data-hovering={p.hovering.toString()}
           className="sidebar-tooltip scale-0 data-[hovering='true']:scale-100"

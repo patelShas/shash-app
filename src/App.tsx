@@ -1,10 +1,12 @@
 import "./App.css";
-import HomePage from "./HomePage";
+import Main from "./main/Main";
+import SideBar from "./side-bar/SideBar";
+import Whole from "./Plan2/Whole";
 
 function App() {
   return (
-    <div className="App">
-      <HomePage />
+    <div>
+      <Whole />
     </div>
   );
 }
